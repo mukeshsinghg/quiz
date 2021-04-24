@@ -1,0 +1,51 @@
+[
+    {
+        "quiznumber": "1",
+        "title": "Type Script Quiz",
+        "creator": {
+            "userid": "user001",
+            "username": "user1"
+        },
+        "description": "This quiz to test your knowledge about typescript.",
+        "category": {
+            "categeryid": "1",
+            "title": "Technincal",
+            "description": "This category consists of technical questions."
+        },
+        "numberofquestions":25
+
+    },
+    {
+        "quiznumber": "2",
+        "title": "Mysql Quiz",
+        "creator": {
+            "userid": "user002",
+            "username": "Creator2"
+        },
+        "description": "This quiz to test your knowledge about MySQL.",
+        "category": {
+            "categeryid": "1",
+            "title": "Technincal",
+            "description": "This category consists of technical questions."
+        },
+        "numberofquestions":20
+
+    },
+    {
+        "quiznumber": "3",
+        "title": "Europe History Quiz",
+        "creator": {
+            "userid": "user001",
+            "username": "user1"
+        },
+        "description": "This quiz to test your knowledge about History of Europe.",
+        "category": {
+            "categeryid": "2",
+            "title": "History",
+            "description": "This category consists of related to history Europe."
+        },
+        "numberofquestions":30
+
+    }
+
+]

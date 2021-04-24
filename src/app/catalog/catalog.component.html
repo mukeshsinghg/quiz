@@ -1,0 +1,66 @@
+<div class="container">
+    
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Quiz</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Catalog</a>
+                    </li>
+
+
+                </ul>
+               
+                <form class="d-flex">
+                   
+                    <select name="filter" [(ngModel)]="FilterBy.id" class="form-select"
+                        (change)="Selected(FilterBy.id)">
+                        <option *ngFor="let x of FilterByData" [ngValue]="x.id" [disabled]="x.id==0">{{x.text}}</option>
+                    </select>
+                    <input name="searchtext" class="form-control me-2" type="search" placeholder="Search"
+                        aria-label="Search" [(ngModel)]="FilterText" (keyup)="onKey($event)">
+                    <!-- <button class="btn btn-outline-success" type="button" (click)="onClick()">Search</button> -->
+                   
+                </form>
+                <!-- <div>
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ali a">
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="login">login</a>
+                        </li>
+
+                    </ul>
+                </div> -->
+            </div>
+        </div>
+    </nav>
+    {{CurrentUser.username}}
+    <ol class="list-group">
+        <li #quiznumber class="list-group-item d-flex justify-content-between align-items-start" *ngFor="let q of FilteredQuizes" [attr.data-quiznumber]="q.quiznumber">
+            <div class="ms-2 me-auto">
+                <h5 class="card-title">{{q.quiznumber}} - {{q.title}} By {{q.creator}} </h5>
+                <div class="fw-bold">{{q.category}}</div>
+                <p class="card-text">{{q.description}}</p>
+                <button [value]="q" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#quizmodal" (click)="SelectQuiz(quiznumber)">Attemp
+                    Quiz</button>
+            </div>
+            <span class="badge bg-primary rounded-pill">{{q.numberofquestions}}</span>
+        </li>
+
+    </ol>
+</div>
+<div class="modal fade" id="quizmodal" role="dialog" tabindex="-1" aria-labelledby="quizmodalLabel" aria-hidden="true">
+    <div *ngIf="isLogedin();then quiz else login"></div>
+    <ng-template #quiz>
+        <app-quiz [Quiz]="SelectedQuiz" [User]="CurrentUser"></app-quiz>
+    </ng-template>
+    <ng-template #login>
+        <app-login (UserSignedIn)="SignInHandler($event)"></app-login>
+    </ng-template>
+</div>

@@ -1,0 +1,43 @@
+
+
+[
+    {
+        "questionnumber": "1",
+        "questionid":"1",
+        "question": "Which of the following statement declares a variable in TypeScript?",
+        "options": [
+            {"option": "var myVar = 123;"},
+            {"option": "var myVar:number = 123;"},
+            {"option": "let myVar:number = 123;"},
+            {"option": "All of the above"}
+        ]
+       
+    },
+
+    {
+        "questionnumber": "2",
+        "questionid":"2",
+        "question": "Which of the followings are primitive types supported in TypeScript?",
+        "options": [
+            {"option": "number"},
+            {"option": "int"},
+            {"option": "object"},
+            {"option": "All of the above"}
+        ]
+       
+    },
+
+    {
+        "questionnumber": "3",
+        "questionid":"3",
+        "question": "Which of the following is a valid union type variable?",
+        "options": [
+            {"option": "var emp:[number, string] = [1, \"Steve\"];"},
+            {"option": "var emp:(number|string) = 123;"},
+            {"option": "var emp:string[] = [\"Bill\"]"},
+            {"option": "None of the above"}
+        ]
+       
+    }
+
+]

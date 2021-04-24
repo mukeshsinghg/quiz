@@ -1,0 +1,118 @@
+<div class="modal-dialog modal-dialog-centered modal-xl" id="quizmodal" role="dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Quiz# {{Quiz?.quiznumber}}</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{Quiz?.title}}</h5>
+                    <p class="card-text">{{Quiz?.description}}</p>
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar"
+                            [style.width.%]="(QuestDispNum/Quiz?.numberofquestions)*100" aria-valuenow="1"
+                            aria-valuemin="1" aria-valuemax="Quiz.numberofquestions">
+                            {{QuestDispNum}}/{{Quiz?.numberofquestions}}</div>
+                            
+                    </div>
+                    
+                </div>
+            </div>
+            <br>
+            <div *ngIf="Result;then result else quiz "></div>
+    <ng-template #quiz>
+        <div class="card">
+            <div class="card-header">
+                {{QuestDispNum}}. {{Question?.question}}
+            </div>
+            <div class="card-body">
+
+                <div class="input-group mb-3">
+                    <div class="input-group">
+                        <span class="input-group-text">A.</span>
+                        <div class="input-group-text">
+                            <input name="options" [(ngModel)]="Selectedanswer" class="form-check-input mt-0"
+                                type="radio" value="A" (change)="onAnswerSelectionChange('A')">
+                        </div>
+                        <label class="form-control">{{Question?.options.A}}</label>
+                    </div>
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group">
+                        <span class="input-group-text">B.</span>
+                        <div class="input-group-text">
+                            <input name="options" [(ngModel)]="Selectedanswer" class="form-check-input mt-0"
+                                type="radio" value="B" (change)="onAnswerSelectionChange('B')">
+                        </div>
+                        <label class="form-control">{{Question?.options.B}}</label>
+                    </div>
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group">
+                        <span class="input-group-text">C.</span>
+                        <div class="input-group-text">
+                            <input name="options" [(ngModel)]="Selectedanswer" class="form-check-input mt-0"
+                                type="radio" value="C" (change)="onAnswerSelectionChange('C')">
+                        </div>
+                        <label class="form-control">{{Question?.options.C}}</label>
+                    </div>
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group">
+                        <span class="input-group-text">D.</span>
+                        <div class="input-group-text">
+                            <input name="options" [(ngModel)]="Selectedanswer" class="form-check-input mt-0"
+                                type="radio" value="D" (change)="onAnswerSelectionChange('D')">
+                        </div>
+                        <label class="form-control">{{Question?.options.D}}</label>
+                    </div>
+                </div>
+                <div class="input-group mb-3" *ngIf="Question?.options.E">
+                    <div class="input-group">
+                        <span class="input-group-text">E.</span>
+                        <div class="input-group-text">
+                            <input name="options" [(ngModel)]="Selectedanswer" class="form-check-input mt-0"
+                                type="radio" value="E" (change)="onAnswerSelectionChange('E')">
+                        </div>
+                        <label class="form-control">{{Question?.options.E}}</label>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <a class="btn btn-primary" (click)="onNext()">{{ButtonText}}</a>
+            </div>
+        </div>
+    </ng-template>
+    <ng-template #result>
+        <div class="card text-center">
+            <div class="card-header">
+              Result
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Your have answered {{Result}} question(s) correctly out of {{Quiz?.numberofquestions}} questions.</h5>
+              
+              <a href="#" class="btn btn-primary">Back to home</a>
+            </div>
+            <div class="card-footer text-muted">
+              It was your attempt number {{AttemptNumber}} on {{Quiz?.title}}.
+            </div>
+          </div>
+        
+    </ng-template>
+            
+
+        </div>
+
+    </div>
+    <div id="confirm" class="modal" role="dialog" name="confirm">
+        <div class="modal-body">
+            Are you sure?
+        </div>
+        <div class="modal-footer">
+            <button type="button" data-dismiss="modal" class="btn btn-primary" id="quit" name="quit">I want to
+                quit</button>
+            <button type="button" data-dismiss="modal" class="btn">Cancel</button>
+        </div>
+    </div>
+</div>

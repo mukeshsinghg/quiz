@@ -1,0 +1,17 @@
+[
+    {
+        "userid": "111-23131-446654",
+        "username": "user1",
+        "password": "pass"
+    },
+    {
+        "userid": "222-23131-446654",
+        "username": "user2",
+        "password": "password"
+    },
+    {
+        "userid": "333-23131-446654",
+        "username": "creator1",
+        "password": "passcode"
+    }
+]
